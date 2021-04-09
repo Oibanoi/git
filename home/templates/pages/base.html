@@ -6,7 +6,9 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    {% load static %}
    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+   <link rel="stylesheet" href="style.css" >  
    <title>{% block title %}{% endblock %}</title>
+   
    <style>
         html, body {
             height: 100%;
@@ -22,6 +24,9 @@
            </div>
            <div class="col-sm-9">
                <center><h1>Blog đầu tay</h1></center>
+               <div class="nav-right">
+                    <a href="{%url 'post_new'%}">Tạo bài viết</a>
+               </div>
            </div>
            <div class="col-sm-1">
                 {% if user.username %}

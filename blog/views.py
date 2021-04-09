@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Post
 from django.views.generic import ListView,DetailView
+from django.views.generic.edit import CreateView
 from blog.models import Post,Comment 
 from blog.forms import CommentForm
 from django.http import HttpResponseRedirect
@@ -19,3 +20,7 @@ def post(request,pk):
             form.save()
             return HttpResponseRedirect(request.path)
     return render(request,"blog/post.html",{"post":post,"form":form})
+class BlogCreateView(CreateView):
+    model=Post
+    template_name='blog/post_new.html'
+    fields=['title','author','body']
